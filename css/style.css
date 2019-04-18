@@ -1,0 +1,63 @@
+html{
+    background: white;
+}
+
+.pics div {
+    width: 100%;
+}
+
+img {
+    height: auto;
+    width: 100%;
+}
+
+.pics{
+    display: flex;
+    flex-flow: row wrap;
+    
+    flex-basis: 100px;
+    flex-direction: row;
+}
+
+.pics div {
+    flex: 1 1 200px;
+}
+
+
+
+.links ul {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    justify-content: center;
+    /*border: 2px solid red;*/
+    /*justify-content: space-around;*/
+
+    
+    
+}
+
+.links a {
+    flex: 1 1 auto;
+    /*border: 2px solid red;*/
+    margin-left: 20px;
+    margin-right: 20px;
+    
+}
+
+@media only screen and (max-width : 480px) {
+    body{
+        /*background: blue;*/
+    }
+    .pics{      
+        /*flex-direction: column;*/
+        /*flex-wrap: wrap;*/
+    }
+    
+    .links ul{
+        display: flex;
+        flex-flow: column nowrap;
+    }
+}
+
+

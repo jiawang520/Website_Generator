@@ -19,11 +19,16 @@ public class IntegratedJumplistGeneratorVer69 extends javax.swing.JFrame {
             + "<head>\n"
             + "<meta name=\"viewport\" content=\"width=device-width, initial-scale-1.0\">"
             + "\n<link href=\"style.css\" rel=\"stylesheet\"/>\n"
+            + "\n<link href=\"tf_navicon.css\" rel=\"stylesheet\"/>\n"
             + "<title>"
             + "Ultimate HTML Editor 3000"
             + "</title>\n"            
             + "</head>\n"
             + "<body>\n"
+            + "<nav class=\"links\">\n"
+            + "\n<a id=\"navicon\" href=\"#\"><img src=\"tf_navicon.png\" alt=\"\" /></a>\n"
+            + "\n<ul>"
+            + "</ul>\n</nav>\n"
             + "<div class=\"pics\">\n"
             + "</div>\n"
 //            + "<body>\n"
@@ -92,6 +97,12 @@ public class IntegratedJumplistGeneratorVer69 extends javax.swing.JFrame {
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel5.setText("Page Title");
+
+        txtTitle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTitleActionPerformed(evt);
+            }
+        });
 
         btnAddtitle.setText("Add Page Title");
         btnAddtitle.addActionListener(new java.awt.event.ActionListener() {
@@ -490,12 +501,12 @@ public class IntegratedJumplistGeneratorVer69 extends javax.swing.JFrame {
         try {
 
             sb.setLength(0);
-            sb.append("<a href=\"");
+            sb.append("\n<li>\n<a href=\"");
             sb.append(txtUrl.getText());
             sb.append("\">");
             sb.append(txtDisplay.getText());
-            sb.append("</a>\n");
-            txtDoc.insert(sb.toString(), txtDoc.getText().indexOf("\n</body>"));
+            sb.append("</a>\n</li>\n");
+            txtDoc.insert(sb.toString(), txtDoc.getText().indexOf("</ul>"));
             txtUrl.setText("");
             txtDisplay.setText("");
             //            JumpListGenerator_console console = new JumpListGenerator_console(sb);
@@ -713,6 +724,10 @@ public class IntegratedJumplistGeneratorVer69 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "unable to insert option - missing </select>");
         }
     }//GEN-LAST:event_btnAddonlineimgActionPerformed
+
+    private void txtTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTitleActionPerformed
 
     /**
      * @param args the command line arguments
