@@ -20,21 +20,30 @@ public class IntegratedJumplistGeneratorVer69 extends javax.swing.JFrame {
             + "<meta name=\"viewport\" content=\"width=device-width, initial-scale-1.0\">"
             + "\n<link href=\"style.css\" rel=\"stylesheet\"/>\n"
             + "\n<link href=\"tf_navicon.css\" rel=\"stylesheet\"/>\n"
-            + "<title>"
+            
+            + "\n<title>"
             + "Ultimate HTML Editor 3000"
-            + "</title>\n"            
+            + "</title>\n"
             + "</head>\n"
             + "<body>\n"
+            + "<div class=\"pageheading\">\n"
+            + "</div>\n"
             + "<nav class=\"links\">\n"
             + "\n<a id=\"navicon\" href=\"#\"><img src=\"tf_navicon.png\" alt=\"\" /></a>\n"
             + "\n<ul>"
             + "</ul>\n</nav>\n"
             + "<div class=\"pics\">\n"
             + "</div>\n"
-//            + "<body>\n"
-////            + "<select onChange=\"location.href=this[selectedIndex].value\">\n"
-////            + "<option value=\"\">default</option>\n"
-////            + "</select>\n"
+            //            + "<body>\n"
+            ////            + "<select onChange=\"location.href=this[selectedIndex].value\">\n"
+            ////            + "<option value=\"\">default</option>\n"
+            ////            + "</select>\n"
+            + "<div class=\"pageaudio\">\n"
+            + "</div>\n"
+            + "<div class=\"pagevideo\">\n"
+            + "</div>\n"
+            + "<div class=\"pagetable\">\n"
+            + "</div>\n"
             + "\n</body>\n"
             + "</html>";
 
@@ -531,7 +540,7 @@ public class IntegratedJumplistGeneratorVer69 extends javax.swing.JFrame {
         if (txtNumRows.getText().length() == 0) {
             return;
         }
-        
+
         sb.setLength(0);
         try {
             sb.append("\n<table border=\"1\">\n<tbody>");
@@ -548,7 +557,7 @@ public class IntegratedJumplistGeneratorVer69 extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "unable to insert option - missing </select>");
         }
-        txtDoc.insert(sb.toString(), txtDoc.getText().indexOf("</body>"));
+        txtDoc.insert(sb.toString(), txtDoc.getText().indexOf("pagetable") + 11);
         txtNumCols.setText("");
         txtNumRows.setText("");
     }//GEN-LAST:event_btnAddTableActionPerformed
@@ -576,7 +585,7 @@ public class IntegratedJumplistGeneratorVer69 extends javax.swing.JFrame {
                 sb.append("\" alt=\"\"/>");
                 sb.append("\n</div>\n");
                 //                JOptionPane.showMessageDialog(this, sb);
-                txtDoc.insert(sb.toString(), txtDoc.getText().indexOf("pics")+6);
+                txtDoc.insert(sb.toString(), txtDoc.getText().indexOf("pics") + 6);
 
                 fos.close();
 
@@ -608,13 +617,13 @@ public class IntegratedJumplistGeneratorVer69 extends javax.swing.JFrame {
             try {
                 FileInputStream fos = new FileInputStream(f2);
                 String str = f2.getAbsolutePath();
-                
+
                 sb.setLength(0);
                 sb.append("\n<audio controls src=\"");
                 sb.append(str);
                 sb.append("\"></audio>\n");
                 //                JOptionPane.showMessageDialog(this, sb);
-                txtDoc.insert(sb.toString(), txtDoc.getText().indexOf("\n</body>"));
+                txtDoc.insert(sb.toString(), txtDoc.getText().indexOf("pageaudio") + 11);
 
                 fos.close();
 
@@ -650,13 +659,13 @@ public class IntegratedJumplistGeneratorVer69 extends javax.swing.JFrame {
             try {
                 FileInputStream fos = new FileInputStream(f2);
                 String str = f2.getAbsolutePath();
-                
+
                 sb.setLength(0);
                 sb.append("\n<video controls src=\"");
                 sb.append(str);
                 sb.append("\"></video>\n");
                 //                JOptionPane.showMessageDialog(this, sb);
-                txtDoc.insert(sb.toString(), txtDoc.getText().indexOf("\n</body>"));
+                txtDoc.insert(sb.toString(), txtDoc.getText().indexOf("pagevideo") + 11);
 
                 fos.close();
 
@@ -682,9 +691,8 @@ public class IntegratedJumplistGeneratorVer69 extends javax.swing.JFrame {
             sb.append(txtTitle.getText());
             sb.append("</h1>\n");
             JOptionPane.showMessageDialog(this, sb);
-            txtDoc.insert(sb.toString(), txtDoc.getText().indexOf("</head>\n"));          
+            txtDoc.insert(sb.toString(), txtDoc.getText().indexOf("pageheading") + 13);
             txtTitle.setText("");
-            
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "unable to insert option - missing </select>");
